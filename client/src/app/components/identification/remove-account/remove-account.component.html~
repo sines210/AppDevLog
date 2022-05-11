@@ -1,0 +1,1 @@
+<ion-button (click)='onDelete()'>Remove your account from this device</ion-button>

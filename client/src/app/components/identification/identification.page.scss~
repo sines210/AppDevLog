@@ -1,0 +1,6 @@
+.defaut-input{
+    background: transparent;
+    border: none;
+    padding: 3%
+}
+

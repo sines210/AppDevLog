@@ -1,0 +1,22 @@
+<!--<section class="circles-container">
+    <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent'  [backspaceCompteur]="backspaceFromParent"></app-circle>
+    <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent'  [backspaceCompteur]="backspaceFromParent"></app-circle>
+    <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent'  [backspaceCompteur]="backspaceFromParent"></app-circle>
+    <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent'  [backspaceCompteur]="backspaceFromParent"></app-circle>
+    <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent'  [backspaceCompteur]="backspaceFromParent"></app-circle>
+    <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent'  [backspaceCompteur]="backspaceFromParent"></app-circle>
+    <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent'  [backspaceCompteur]="backspaceFromParent"></app-circle>
+    <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent' [backspaceCompteur]="backspaceFromParent"></app-circle>
+  </section>
+-->
+
+<section class="circles-container">
+  <app-circle [preventColorInit]="preventColor" (outputCircleColorIndicator)="colorIndicatorFromChild($event)" [detectColorFromPinCircles]="detectColorFromPinRequired" [colorCircle]='colorFromParent' [compteur]='compteurFromParent'  [backspaceCompteur]="backspaceFromParent"></app-circle>
+  <app-circle></app-circle>
+  <app-circle></app-circle>
+  <app-circle></app-circle>
+  <app-circle></app-circle>
+  <app-circle></app-circle>
+  <app-circle></app-circle>
+  <app-circle></app-circle>
+</section>

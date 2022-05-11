@@ -1,0 +1,18 @@
+
+    <ion-list class="modal-content">
+     	<ion-item *ngFor="let crypto of cryptos">
+            <ion-avatar slot="start">
+              <img src="{{crypto.iconUrl}}"/>
+            </ion-avatar>
+            <ion-label>  
+              <h2>{{crypto.rank}}</h2>
+              <p>{{crypto.symbol}}</p>
+	      <p>{{crypto.name}}</p>
+	      <p><span>{{totalCryptos(inputCurrency, currency, crypto.price)}}</span></p>
+	    </ion-label>
+	  </ion-item>
+    </ion-list>
+
+
+
+

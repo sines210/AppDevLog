@@ -1,0 +1,20 @@
+/*import { Data  } from '/var/www/html/Angular/dev_mobile_app/src/app/models/data';*/
+
+
+export interface CoinHistory{
+       
+
+       	   change : number,
+	   history: [
+	   	    price: string,
+		    timestamp:number
+	   	    ]
+       
+
+}
+
+export interface History{
+
+       price:string,
+       timestamp:number
+       }

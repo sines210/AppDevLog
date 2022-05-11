@@ -1,0 +1,21 @@
+.pad-container{
+    width: 100vw;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.col-number{
+    width: 31%;
+    height: 15vh;
+}
+
+.pad-number{
+    font-size: 20px;
+    margin: 25% 40%;
+    cursor: pointer;
+    color: white;
+    background: transparent;
+}
+
+

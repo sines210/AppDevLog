@@ -1,0 +1,45 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject, Subscription } from 'rxjs';
+import { Stats, Base, Coins, Socials, Links, allTimeHigh } from '../models/model';
+import { Data } from '../models/data';
+
+
+@Injectable({
+  providedIn: 'any'
+})
+export class HttpRequestService {
+
+  constructor(private http:HttpClient) { }
+
+ 
+
+  getAllCoins():Observable<Data[]>{
+	return this.http.get<Data[]>("https://coinranking1.p.rapidapi.com/coins", {
+	       "headers": {
+		"x-rapidapi-host": "coinranking1.p.rapidapi.com",
+		"x-rapidapi-key": "29e104d4a7mshb365983abdb823ap1b0fa8jsn456511\
+362ded"
+	}
+})
+}
+
+
+/*	getCoin(id:Number)Observable<Data[]>{
+		return this.http.get<Data[]>(`https://coinranking1.p.rapidapi.com/coins?id=${id}`, {
+			"headers": {
+			"x-rapidapi-host": "coinranking1.p.rapidapi.com",
+			"x-rapidapi-key": "29e104d4a7mshb365983abdb823ap1b0fa8jsn456511\
+362ded"
+	}
+})	
+}
+}
+
+
+
+	getId(id:Number){
+		return id
+}
+*/
+}

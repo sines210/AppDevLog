@@ -1,0 +1,9 @@
+
+<ion-content>
+
+  <!--    <app-create-wallet-button></app-create-wallet-button>-->
+
+  <app-buy-crypto></app-buy-crypto>
+
+  
+</ion-content>

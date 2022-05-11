@@ -1,0 +1,16 @@
+<div class="form-div">
+    <form [formGroup]="loginForm">
+      <ion-item>
+	<ion-label for="email" position="floating">Email</ion-label>
+	<ion-input type="email" formControlName="email" class="defaut-input" required></ion-input>
+      </ion-item><!--faire un truc ou bien phone-->
+      <ion-item>
+	<ion-label position="floating" for="password">Pin</ion-label>
+        <ion-input type="password" formControlName="pass" class="defaut-input" required></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="onLogin()" [disabled]="loginForm.invalid">Connect</ion-button>
+    </form>
+    <a class="alink" :href="/signup">Vous n'avez pas encore de compte?</a>
+</div>
+ 
+

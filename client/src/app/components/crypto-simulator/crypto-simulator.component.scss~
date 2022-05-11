@@ -1,0 +1,19 @@
+.iw3{
+    width: 70vw
+}
+
+.hideAndShow{
+    display: none
+}
+
+.hideModal{
+    display: none
+}
+
+.showModal{
+    display: block
+}
+
+.bottom{
+    margin-bottom: 15%
+}

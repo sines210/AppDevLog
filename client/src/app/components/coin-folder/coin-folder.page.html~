@@ -1,0 +1,104 @@
+<ion-content>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle><img style="width:20%" src="{{currency.iconUrl}}"/></ion-card-subtitle>
+    <ion-card-title>{{currency.name}} ({{currency.symbol}})</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    Buy and sell {{currency.name}} on the most secure crypto platform exchange
+  </ion-card-content>
+  <ion-button color="primary" style="margin-left:3%" :href="/folders/wallet/{{currency.uuid}}">Buy {{currency.name}}</ion-button>
+</ion-card>
+
+<ion-card>
+  <ion-card-content>
+    <canvas width="100" height="100"  baseChart [data]="lineChartData"  [options]="lineChartOptions"  [type]="lineChartType"> </canvas>
+    <ion-item>
+      <ion-row>
+        <ion-col><ion-button (click)="setChart24H()" size="small">1D</ion-button></ion-col>
+        <ion-col><ion-button (click)="setChart1W()" size="small">1W</ion-button></ion-col>
+        <ion-col><ion-button (click)="setChart30D()" size="small">1M</ion-button></ion-col>
+        <ion-col><ion-button (click)="setChart1Y()" size="small">1Y</ion-button></ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+<ion-card>
+  <h1 style="padding-left:3%">Market stats</h1>
+    <ion-item>
+      <ion-label>
+	<h2>Market Cap</h2>
+	<p>${{splittedNumber(currency.marketCap)}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+	<h2>Circulating Supply</h2>
+	<p>{{splittedNumber(currency.supply.circulating)}}{{currency.symbol}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+	<h2>Popularity</h2>
+	<p>#{{currency.rank}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+	<h2>All time high</h2>
+	<p>${{roundedDecimal(currency.allTimeHigh.price)}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+	<h2>BTC Price</h2>
+	<p>BTC {{currency.btcPrice}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+	<h2>Price change (24h)</h2>
+	<p [ngStyle]="{color : color24}">{{change24}}%</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+	<h2>Price change (7d)</h2>
+	<p [ngStyle]="{color : color7}">{{change7}}%</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+	<h2>Price change (30d)</h2>
+	<p [ngStyle]="{color : color30}">{{change30}}%</p>
+      </ion-label>
+    </ion-item>
+    <!--<ion-item>
+      <ion-label>
+	<h2>Volume (24h)</h2>
+	<p>${{splitNumber(currency.24hVolume)}}</p>
+      </ion-label>
+    </ion-item>-->
+</ion-card>
+  
+<ion-card>
+  <ion-card-content>
+<!--    {{htmlToString(currency.description)}}-->
+    <section id='description'>
+    </section>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
+
+
+
+<!--faire le tooltip sur les charts pour price-->
+  <!--faire les  title pour chaque valeur descriptive avec explication predre celles de coinranking-->
+
+  <!--infinite scroll ou autre regler le pb du scroll-->
+
+
+

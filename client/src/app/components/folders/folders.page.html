@@ -1,0 +1,30 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    
+    <ion-tab-button tab="folder">
+      <ion-icon name="layers-outline"></ion-icon>
+      <ion-label>Cryptos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="cryptosimulator">
+      <ion-icon name="speedometer-outline"></ion-icon>
+      <ion-label>Simulator</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="presentActionSheet()">
+      <ion-icon name="settings-outline"></ion-icon>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="logout">
+      <ion-icon name="close-circle-outline"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-tab-button>
+
+    
+  </ion-tab-bar>
+
+</ion-tabs>
+<!-- pas ideal les tabs pour le passage de data cf buttonText du pad a regler-->
+

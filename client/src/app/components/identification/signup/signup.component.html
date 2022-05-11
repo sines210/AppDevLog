@@ -1,0 +1,27 @@
+<div class="form-div">
+  <form [formGroup]="userForm">
+      <ion-item>
+	<label for="email" position="floating">Email</label>
+	<input type="email" formControlName="email" class="defaut-input" required>
+      </ion-item>
+<!--      <ion-item>
+	<label for="phone">Phone number</label>
+        <input type="tel" formControlName="phone" class="defaut-input" required>
+      </ion-item>-->
+      <ion-item>
+	<label for="password" position="floating">Pin <span style="font-size:11px">8 num</span></label>
+        <input type="password" formControlName="pass" class="defaut-input" required>
+      </ion-item>
+      <ion-item>
+	<label for="confirmPassword">Confirm</label>
+        <input type="password" formControlName="confirmpass" class="defaut-input" required>
+      </ion-item>
+
+      <ion-button expand="full" (click)="onLogin()" [disabled]="userForm.invalid">Save</ion-button>
+    </form>
+</div>
+<!--<p style="color:#ff1100">{{errorMessage}}</p>
+<p style="color:#23e82d">{{validateMessage}}</p>-->
+
+
+

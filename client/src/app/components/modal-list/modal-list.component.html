@@ -1,0 +1,17 @@
+
+    <ion-list class="modal-content">
+     	<ion-item *ngFor="let crypto of cryptos" :href="/folders/wallet/{{crypto.uuid}}">
+            <ion-avatar slot="start">
+              <img src="{{crypto.iconUrl}}"/>
+            </ion-avatar>
+            <ion-label>  
+              <h2>#{{crypto.rank}}</h2>
+	      <p>{{crypto.name}}</p>
+	      <p>GET: <span>{{crypto.symbol}}</span><span style="margin-left: 1%">{{totalCryptos(inputCurrency, currency, crypto.price)}}</span></p>
+	    </ion-label>
+	  </ion-item>
+    </ion-list>
+
+
+
+

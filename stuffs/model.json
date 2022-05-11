@@ -1,0 +1,132 @@
+{
+    "CoinWalletApp":{
+	"identifications": {
+	    "id": [
+		"Type": "int(10) unsigned",
+		"Null": false,
+		"Key": "primary",
+		"Default": null,
+		"Extra": "auto_increment"
+	    ],
+	    "email": [
+		"Type": "varchar(55)",
+		"Null": false,
+		"Key": "unique",
+		"Default": null,
+	    ],
+	    "pass": [
+		"Type": "varchar(255)",
+		"Null": false,
+		"Default": null,
+	    ],
+	    "recovery": [
+		"Type": "varchar(155)",
+		"Null": true,
+		"Default": null,
+	    ],
+	    "createdAt": [
+		"Type": "timestamp",
+		"Null": false,
+		"Default": "current_timestamp",
+	    ],
+	    "updatedAt": [
+		"Type": "timestamp",
+		"Null": false,
+		"Default": "current_timestamp",
+		"Extra": "on_update current_timestamp"
+	    ]
+	},
+	"wallets": {
+	    "id": [
+		"Type": "int(10) unsigned",
+		"Null": false,
+		"Key": "primary",
+		"Default": null,
+		"Extra": "auto_increment"
+	    ],
+	    "wallets_user_id": [
+		"Type": "int(10) unsigned",
+		"Null": false,
+		"Key": "multiple",
+		"Default": null,
+	    ],
+	    "currency": [
+		"Type": "varchar(55)",
+		"Null": false,
+		"Default": null,
+	    ],
+	    "createdAt": [
+		"Type": "timestamp",
+		"Null": false,
+		"Default": "current_timestamp",
+	    ],
+	    "updatedAt": [
+		"Type": "timestamp",
+		"Null": false,
+		"Default": "current_timestamp",
+		"Extra": "on_update current_timestamp"
+	    ]
+	},
+	"transactions": {
+	    "id": [
+		"Type": "int(10) unsigned",
+		"Null": false,
+		"Key": "primary",
+		"Default": null,
+		"Extra": "auto_increment"
+	    ],
+	    "transactions_wallet_id": [
+		"Type": "int(10) unsigned",
+		"Null": false,
+		"Key": "multiple",
+		"Default": null,
+	    ],
+	    "flux": [
+		"Type": "varchar(10)",
+		"Null": true,
+		"Default": null,
+	    ],
+	    "address": [
+		"Type": "varchar(255)",
+		"Null": true,
+		"Default": null,
+	    ],
+	    "transaction_amount": [
+		"Type": "varchar(255)",
+		"Null": false,
+		"Default": null,
+	    ],
+	    "currency": [
+		"Type": "varchar(15)",
+		"Null": true,
+		"Default": null,
+	    ],
+	    "crypto_amount": [
+		"Type": "varchar(255)",
+		"Null": false,
+		"Default": null,
+	    ],
+	    "crypto_currency": [
+		"Type": "varchar(15)",
+		"Null": true,
+		"Default": null,
+	    ],
+	    "balance": [
+		"Type": "varchar(255)",
+		"Null": true,
+		"Default": null,
+	    ],
+	    "createdAt": [
+		"Type": "timestamp",
+		"Null": false,
+		"Default": "current_timestamp",
+	    ],
+	    "updatedAt": [
+		"Type": "timestamp",
+		"Null": false,
+		"Default": "current_timestamp",
+		"Extra": "on_update current_timestamp"
+	    ]
+	}
+    }
+}

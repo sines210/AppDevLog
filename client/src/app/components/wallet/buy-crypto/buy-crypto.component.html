@@ -1,0 +1,29 @@
+<ion-grid class="grid-item">
+ <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <ion-row class="row-grid-items">
+    <ion-col>
+      <ion-input name="currencySum" class="input-wallet iw1" [(ngModel)]="inputCurrency">{{symbolCurrency}}</ion-input>
+    </ion-col>
+    <ion-col>
+	<select name="currency" [(ngModel)]="currency"  class="input-wallet iw2">
+	    <option class='opt'>USD</option>
+	    <option class='opt'>EUR</option>
+	</select>
+    </ion-col>
+  </ion-row>
+  <ion-row class="row-grid-items row-bottom">
+    <ion-col>
+      <ion-input name="coinSum" class="input-wallet iw1" [ngModel]="toDollars(inputCurrency, currency)">{{symbolCoin}}</ion-input>
+    </ion-col>
+    <ion-col>
+     <select id="select-coin" name='coin' [(ngModel)]="coinName"  class="input-wallet iw2 custom-options"(click)="selectCrypto()"></select>
+    </ion-col>
+  </ion-row>
+  <app-pad [test]='testMessage' [getButtonText]="buttonText" [inputFromParent]='inputCurrency' (inputToParent)="dataFromChild($event)"></app-pad>
+  <ion-button class="button-buy-cryptos" expand="full" (click)="onSend(f)"  [disabled]="f.invalid">Buy</ion-button>
+ </form>
+</ion-grid>
+<!--FAIRE => 
+3=>faire la meme page mais pour les echanges (au lieu de copier la page on pourrait faire des composants reutilisables de pad et boutons et input)
+4=>faire la balance
+-->

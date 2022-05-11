@@ -1,0 +1,108 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-circle',
+  templateUrl: './circle.component.html',
+  styleUrls: ['./circle.component.scss'],
+})
+export class CircleComponent implements OnInit {
+
+ @Input() colorCircle: string;
+ @Input() compteur: number;
+ @Input() backspaceCompteur: number;
+ @Input() detectColorFromPinCircles: number;
+ colorInit: string;
+ index: number;
+ @Input() preventColorInit: number;
+ @Output() outputCircleColorIndicator = new EventEmitter();
+
+  
+ constructor() { }
+
+  ngOnInit(){ }
+    	     
+
+   ngOnChanges(){
+console.log('on change circle')
+ 	var circles = document.querySelectorAll<HTMLElement>('.circle');
+
+
+        this.index = this.compteur
+
+/*	    if(this.preventColorInit !==1 &&  this.compteur === 0 ){
+  		       circles.forEach((circle)=>{
+				setTimeout(()=>{circle.style.backgroundColor = '#3880ff'}, 700)
+		       })
+  		     }*/
+		     if(this.colorCircle === "#2dd36f"){
+		       circles.forEach((circle)=>{
+		       				console.log('color')
+				circle.style.backgroundColor = '#2dd36f'
+		       })
+		     }
+
+	    if(this.preventColorInit !==1 &&  this.compteur === 0 ){
+  		       circles.forEach((circle)=>{
+		       				console.log('compteur0')
+				circle.style.backgroundColor = '#3880ff'
+		       })
+  		     }
+  
+/*	    if(this.detectColorFromPinCircles === 2){
+	    		circles.forEach((circle)=>{
+							console.log('compteur2')
+				this.preventColorInit = 1
+				circle.style.backgroundColor = '#eb445a';
+				this.detectColorFromPinCircles = 0;
+				this.outputCircleColorIndicator.emit(this.detectColorFromPinCircles);
+
+				})
+		}*/
+	      	     
+  
+
+     		  if(this.backspaceCompteur > 0){
+		  	this.index = this.compteur
+  			circles[this.index].style.backgroundColor = '#3880ff';
+  			}
+
+//'#eb445a' '#2dd36f'{setTimeout(()=>{this.toast.successJournalToast()},1500)
+
+		     
+
+	    for(var i=0; i<=circles.length; i++){
+	        	 
+		        if(this.compteur === 8){
+			       circles[7].style.backgroundColor = this.colorCircle;
+				 }
+				 
+			else if(this.compteur === 7){
+			       circles[6].style.backgroundColor = this.colorCircle;
+				 }
+		        else if(this.compteur === 6){
+			       circles[5].style.backgroundColor = this.colorCircle;
+				 }
+			else if(this.compteur === 5){
+			       circles[4].style.backgroundColor = this.colorCircle;
+				 }
+			else if(this.compteur === 4){
+			       circles[3].style.backgroundColor = this.colorCircle;
+				 }
+			else if(this.compteur === 3){
+			       circles[2].style.backgroundColor = this.colorCircle;
+				 }
+			else if(this.compteur === 2){
+			       circles[1].style.backgroundColor = this.colorCircle;
+				 }
+			else if(this.compteur === 1){
+			       circles[0].style.backgroundColor = this.colorCircle;
+				 }
+		        
+	}
+}
+
+
+
+ 
+
+}

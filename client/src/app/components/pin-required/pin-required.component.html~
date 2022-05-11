@@ -1,0 +1,7 @@
+<div class="pin-required-container">
+  <app-pin-circles [preventColor]="preventColorInit" [detectColorFromPinRequired]="inputPinRequired" (outputPinCirclesColorIndicator)="colorIndicatorFromChild($event)"  [detectColorFromPinRequired]="colorIndicator" [colorFromParent]="color" [compteurFromParent]="compteur" [backspaceFromParent]="backspaceCompteur"></app-pin-circles>
+<app-pad (inputToParent)="dataFromChild($event)" (colorToParent)="colorFromChild($event)" (compteurBackspaceClick)="backspaceFromChild($event)" (compteurClick)="compteurFromChild($event)" (clickOk)="okPinFromChild($event)" [getButtonText]="buttonText"></app-pad>
+</div>
+
+<!--(initColorIndicator)="colorIndicatorFromChild($event)"
+ -->

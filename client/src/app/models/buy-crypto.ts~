@@ -1,0 +1,7 @@
+export BuyCrypto interface {
+
+       currencySum: string,
+       currency: string,
+       coinSum: string,
+       coin: string
+       }

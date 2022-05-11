@@ -1,0 +1,28 @@
+
+<ion-content>
+<!--  <cdk-virtual-scroll-viewport itemSize="56" minBufferPx="900" maxBufferPx="1350">-->
+    <ion-list>
+      <!--   <ion-item *cdkVirtualFor="let coin of data"  :href="/folder2/{{coin.uuid}}">-->
+	<ion-item *ngFor="let coin of data"  :href="/folders/coin-folder/{{coin.uuid}}">
+            <ion-avatar slot="start">
+              <img src="{{coin.iconUrl}}"/>
+            </ion-avatar>
+            <ion-label>  
+              <h2>{{coin.name}}</h2>
+              <p>{{coin.symbol}}</p>
+              <p><span>${{roundedDecimal(coin.price)}}</span><span [ngStyle]="{'color' : coin.change[0] === '-'? '#ff1100' : '#23e82d'}"> {{statusGetter(coin.change)}}%</span></p>
+	    <!--  <p>{{sharethedata.name}}</p>-->
+	    </ion-label>
+	  </ion-item>
+    </ion-list>
+<!--  </cdk-virtual-scroll-viewport>-->
+</ion-content>
+
+
+
+
+
+<!--avec infinite scroll on ajoute des noeuds lorsque nous arrivons en bas de liste ce qui peut poser des pbs de lourdeur du DOM en cas big data, avec le virtual scroll il y a tjs le meme nombre de noeuds definis par la taille de l'ecran et les anciens sont remplaces par les nouveaux lors du scroll -->
+
+  
+<!--si les centimes apres le point sont à 00 faire une condition pour ne pas l'afficher-->

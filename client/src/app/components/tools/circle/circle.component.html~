@@ -1,0 +1,2 @@
+    <div class="circle" [ngStyle]="{'color' : 'colorInit'}"></div>
+<!-- [ngStyle]="{'color' : coin.change[0] === '-'? '#ff1100' : '#23e82d'}"-->

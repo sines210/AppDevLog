@@ -1,0 +1,67 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { ModalListComponent } from '../modal-list/modal-list.component';
+
+
+@Component({
+  selector: 'app-crypto-simulator',
+  templateUrl: './crypto-simulator.component.html',
+  styleUrls: ['./crypto-simulator.component.scss'],
+})
+
+export class CryptoSimulatorComponent implements OnInit {
+
+  buttonText: string;
+  symbolCurrency: string = '$';
+  option1: any;
+  option2: any;
+  @Input() inputCurrency: string = '0';
+  @Input() currency: string = 'USD';
+  modal: HTMLElement;
+  contentElement: HTMLElement;
+
+  constructor() { }
+
+
+
+
+
+  ngOnInit() {
+
+//pas oublier identification et getauthstatus
+  	     this.buttonText = '.';
+
+	     this.modal = document.querySelector<HTMLElement>('app-modal-list');
+	     this.modal.classList.add('hideModal');
+  }
+
+  dataFromChild($event){
+	this.inputCurrency = $event
+  }
+
+  selectOption(){
+  
+	this.option1 = document.querySelector('.opt1');
+	this.option1.classList.toggle('hideAndShow');
+
+
+	this.option2 = document.querySelector('.opt2');
+	this.option2.addEventListener('click', (event)=>{
+
+		this.modal.classList.toggle('showModal');
+		
+			})
+  }
+
+  hideModal(){
+  console.log('hik')
+	this.modal.classList.remove('showModal');
+  }
+  
+}  
+
+
+
+
+

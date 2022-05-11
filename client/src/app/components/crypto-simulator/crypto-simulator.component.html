@@ -1,0 +1,28 @@
+<ion-grid class="grid-item">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-row  (click)="hideModal()"  class="row-grid-items">
+      <ion-col>
+	<ion-input  (click)="hideModal"  name="total" class="input-wallet iw1" [(ngModel)]="inputCurrency">{{symbolCurrency}}</ion-input>
+      </ion-col>
+      <ion-col>
+	<select [(ngModel)]="currency" name="currency" class="input-wallet iw2">
+            <option class="usd">USD</option>
+            <option class="eur">EUR</option>
+	</select>
+      </ion-col>
+    </ion-row>
+    <ion-row class="bottom">
+      <select class="input-wallet iw3" (click)="selectOption()">
+	<option class="opt1">Total cryptos according to</option>
+	<option class="opt2">Popularity</option>
+      </select>
+    </ion-row>
+  </form>
+  <app-pad (click)="hideModal()" [getButtonText]="buttonText" [inputFromParent]="inputCurrency" (inputToParent)="dataFromChild($event)"></app-pad>
+<app-modal-list  [inputCurrency]="inputCurrency" [symbolCurrency]="symbolCurrency" [currency]="currency"></app-modal-list>
+</ion-grid>
+  
+
+
+
+<!--adaptable a tt type de simulation-->

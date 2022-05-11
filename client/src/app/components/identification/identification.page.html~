@@ -1,0 +1,4 @@
+<ion-content  class="identification">
+  <app-login></app-login>
+<!--  <app-signup *ngIf="isLogged()===false"></app-signup>-->
+</ion-content>
