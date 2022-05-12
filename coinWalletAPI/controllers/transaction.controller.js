@@ -3,6 +3,7 @@ const Transaction = db.transaction;
 var bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(10);
 var jwt = require('jsonwebtoken');
+var env = require('../env');
 
 
 exports.createJournal = (req, res)=>{
@@ -14,7 +15,7 @@ exports.createJournal = (req, res)=>{
     }
     else{
 	var token = req.body.walletId;
-	var decoded = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+	var decoded = jwt.verify(token, env.setEnv.secret);
 	Transaction.create({flux:req.body.flux,
 			    transaction_amount:req.body.transaction_amount,
 			    currency:req.body.currency,

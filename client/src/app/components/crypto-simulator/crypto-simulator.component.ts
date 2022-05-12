@@ -13,11 +13,11 @@ import { IdentificationService } from '../../services/identification.service';
 export class CryptoSimulatorComponent {
 
   buttonText: string = '.';
-  symbolCurrency: string = '$';
   option1: any;
   option2: any;
   @Input() inputCurrency: string = '0';
   @Input() currency: string = 'USD';
+  @Input() symbolCurrency: string = '$';
   modal: HTMLElement;
   contentElement: HTMLElement;
   hideAndShow : boolean;
@@ -36,6 +36,10 @@ export class CryptoSimulatorComponent {
 
   dataFromChild($event){
 	this.inputCurrency = $event
+  }
+
+ symbolFromChild($event){
+	this.symbolCurrency = $event
   }
 
   selectOption(){

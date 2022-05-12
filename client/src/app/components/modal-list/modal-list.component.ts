@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { HttpRequestService } from '../../services/http-request.service';
 import { FunctionsService } from '../../services/functions.service';
 import { IdentificationService } from '../../services/identification.service';
@@ -20,6 +20,9 @@ export class ModalListComponent{
   @Input() inputCurrency: string;
   @Input() symbolCurrency: string;
   @Input() currency: string;
+  @Output() symbolToParent = new EventEmitter();
+
+
 
   constructor(private http: HttpRequestService, private functions: FunctionsService, private identification: IdentificationService) { }
 
@@ -33,6 +36,8 @@ export class ModalListComponent{
 	     .subscribe((res)=>{
 		this.cryptos = res['data'].coins;
 				})
+				
+	this.symbolToParent.emit(this.symbolCurrency)
 		}
 
 totalCryptos(inputCurrency:string, currency:string, priceCoin: any){
@@ -50,5 +55,6 @@ totalCryptos(inputCurrency:string, currency:string, priceCoin: any){
 		}
  	return this.sumCryptos
 	}
+
 
 }

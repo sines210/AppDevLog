@@ -4,10 +4,9 @@ const Op = db.Sequelize.Op;
 var bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(10);
 var jwt = require('jsonwebtoken');
-//var cookieParser = require('cookie-parser');
+var env = require('../env');
 
-
-
+  
 
 exports.createID = (req, res)=>{
     if(!req.body){
@@ -34,25 +33,6 @@ exports.createID = (req, res)=>{
 
 
 
-/*exports.findAllID = (req, res)=>{
-    var email = req.query.email;
-    var condition = email ? {email: {[Op.like]: `%${email}%`}}: null;
-    Identification.findAll({where: condition})
-	.then(data=>{
-	    res.send(data)
-	})
-
-	.catch(err=>{
-	    
-	    res.status(500).send({
-		message: err.message || "Some error occured while retrieving all"
-	    })
-	})
-    
-}
-
-*/
-
 
 exports.createCookie = (req, res)=>{
     res.setHeader('set-cookie', "foo=bar")
@@ -78,7 +58,7 @@ exports.verifyID = (req, res)=>{
  		? res.status(200).json({userId: data.id,
 				        token: jwt.sign(
 					    {userId: data.id},
-					    'RANDOM_TOKEN_SECRET',//faire un .env
+					    env.setEnv.secret,
 					    {expiresIn: '24h'}
 					  )
 					  })
@@ -98,7 +78,7 @@ exports.verifyID = (req, res)=>{
 
 exports.verifyPin = (req, res)=>{
     var token = req.params.userId;
-    var decoded = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    var decoded = jwt.verify(token, env.setEnv.secret);
     var pinToVerify = req.params.pin;
     
     Identification.findOne({where: {
@@ -120,29 +100,9 @@ exports.verifyPin = (req, res)=>{
     
 }
 
-
-/*exports.findOneID = (req, res)=>{
-    const id = req.params.id;
-    Identification.findByPk(id)
-    .then(data => {
-      if (data) {
-        res.send(data);
-      } else {
-        res.status(404).send({
-          message: `Cannot find Identification  with id=${id}.`
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Error retrieving Identification with id=" + id
-      });
-    });
-};
-*/
 exports.updateID = (req, res)=>{
     var token = req.params.userId;
-    var decoded = jwt.verify(token,  'RANDOM_TOKEN_SECRET');
+    var decoded = jwt.verify(token,  env.setEnv.secret);
     Identification.update({pass:bcrypt.hashSync(req.params.pass, salt)}, {
     where: { id: decoded.userId }
   })
@@ -158,7 +118,7 @@ exports.updateID = (req, res)=>{
 
 exports.delete = (req, res)=>{
   var token = req.params.userId;
-  var decoded = jwt.verify(token,  'RANDOM_TOKEN_SECRET');  
+  var decoded = jwt.verify(token, env.setEnv.secret);  
   Identification.destroy({
     where: { id: decoded.userId }
   })

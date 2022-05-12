@@ -46,7 +46,7 @@ export class IdentificationService {
 
 
   verifyPin(userId:string, pin: string){
-	return this.http.get(`http://localhost:5000/pin-verify/${userId}/${pin}`)
+	return this.http.get(`https://projet-dev-log.herokuapp.com/pin-verify/${userId}/${pin}`)
 }
 
   updateIdentificationService(userId:string, pass:string){

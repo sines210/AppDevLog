@@ -2,7 +2,7 @@ const db = require("../models");
 const Wallet = db.wallet;
 const Op = db.Sequelize.Op;
 var jwt = require('jsonwebtoken');
-
+var env = require('../env');
 
 
 exports.createWallet = (req, res)=>{
@@ -15,7 +15,7 @@ exports.createWallet = (req, res)=>{
 
     else{
 	var token = req.body.userId;
-	var decoded = jwt.verify(token,  'RANDOM_TOKEN_SECRET');
+	var decoded = jwt.verify(token,  env.setEnv.secret);
 	Wallet.create({wallets_user_id: decoded.userId, currency: req.body.currency})
 	    .then(()=>{		
 		res.status(201).send({message: decoded})
@@ -34,7 +34,7 @@ exports.createWallet = (req, res)=>{
 
 exports.decodeToken = (req, res) =>{
     var token = req.params.token;
-    var decoded = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    var decoded = jwt.verify(token, env.setEnv.secret);
     console.log(decoded);
     res.send('token match');
 
@@ -47,7 +47,7 @@ exports.decodeToken = (req, res) =>{
 
 exports.findWallet = (req, res)=>{
     var token = req.params.userId;
-    var decoded = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    var decoded = jwt.verify(token, env.setEnv.secret);
     Wallet.findOne({where: {
 	wallets_user_id: decoded.userId,
 	currency: req.params.currency
@@ -57,7 +57,7 @@ exports.findWallet = (req, res)=>{
 	    	    res.status(200).json({walletId:data.id,
 				  token:jwt.sign(
 				      {walletId: data.id},
-				      'RANDOM_TOKEN_SECRET',
+				      env.setEnv.secret,
 				      {expiresIn: '24h'}
 				  ),
 				  userId:data.wallets_user_id,

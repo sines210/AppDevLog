@@ -1,12 +1,12 @@
 module.exports = {
-   /* HOST: "127.0.0.1",
+/*    HOST: "127.0.0.1",
     PORT: "3321",
     USER: "root",
     PASSWORD: "root",
     DB: "CoinWalletApp",
     dialect: "mysql",
-   */
-    HOST: process.env.DB_HOST,
+  */ 
+  HOST: process.env.DB_HOST,
     USER: process.env.DB_USERNAME,
     PASSWORD: process.env.DB_PASSWORD,
     DB: process.env.DB_DATABASE,
