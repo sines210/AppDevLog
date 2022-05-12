@@ -6,13 +6,13 @@ module.exports = {
     DB: "CoinWalletApp",
     dialect: "mysql",
    */
-    HOST: "eu-cdbr-west-02.cleardb.net",
-    USER: "b0be6cfb8ee185",
-    PASSWORD: "c1caa80b",
-    DB: "heroku_d40bec29e594d0f",
+    HOST: process.env.DB_HOST,
+    USER: process.env.DB_USERNAME,
+    PASSWORD: process.env.DB_PASSWORD,
+    DB: process.env.DB_DATABASE,
     dialect: "mysql",
 
-//process.env.USER_ID; // "239482"
+
     
 /*OPTIONAL*/
   /*  pool: {
