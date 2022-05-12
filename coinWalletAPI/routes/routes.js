@@ -7,7 +7,7 @@ const reqTransaction = require('../controllers/transaction.controller.js');
 
 
 router.get("/", function (req, res) {
-  res.send("<h1>Hello World!</h1>")
+    res.send({message:res})
 })
 router.post('/signup', reqID.createID);
 router.get("/login/:email/:pass", reqID.verifyID);
