@@ -55,7 +55,8 @@ app.get('/', (req, res)=>{
 
 app.use('/', routes);//ici express met api dans l'url apres on peut plus y toucher il faut voir le middleware
 
+app.listen(PORT, ()=>{console.log('server works')})
 
 //https.createServer(options, app).listen(PORT)
-http.createServer(app).listen(5000)
+//http.createServer(app).listen(5000)
 

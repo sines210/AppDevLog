@@ -21,7 +21,7 @@ export class IdentificationService {
 
   postIdentificationService(email:string,  pass:string){
 
-  	this.http.post('http://localhost:5000/signup', {email, pass}, {headers: {'content-type':'application/json'}})
+  	this.http.post('https://projet-dev-log.herokuapp.com/signup', {email, pass}, {headers: {'content-type':'application/json'}})
 	
 	.subscribe(
 		(res)=>{this.toast.successSignupToast();
@@ -33,7 +33,7 @@ export class IdentificationService {
 
   getIdentificationService(email:string, pass:string){		
 
-  	this.http.get(`http://localhost:5000/login/${email}/${pass}`)
+  	this.http.get(`https://projet-dev-log.herokuapp.com/login/${email}/${pass}`)
 
 	.subscribe(
 		(res)=>{this.userId = res['token'];
@@ -51,7 +51,7 @@ export class IdentificationService {
 
   updateIdentificationService(userId:string, pass:string){
 
-         this.http.put(`http://localhost:5000/updatepassword/${userId}/${pass}`, {userId, pass})
+         this.http.put(`https://projet-dev-log.herokuapp.com/updatepassword/${userId}/${pass}`, {userId, pass})
 
 	 .subscribe(
 		(res)=>{this.toast.successUpdateToast();
@@ -62,7 +62,7 @@ export class IdentificationService {
   	}
 
   deleteIdentificationService(userId:string){
-	this.http.delete(`http://localhost:5000/delete/${userId}`)
+	this.http.delete(`https://projet-dev-log.herokuapp.com/delete/${userId}`)
 	.subscribe(
 		(res)=>{this.toast.successDeleteToast();
 			this.router.navigate(['identification'])

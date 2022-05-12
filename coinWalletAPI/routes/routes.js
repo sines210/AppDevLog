@@ -6,7 +6,9 @@ const reqWallet = require('../controllers/wallet.controller.js');
 const reqTransaction = require('../controllers/transaction.controller.js');
 
 
-//router.get('/', reqID.test);
+router.get("/", function (req, res) {
+  res.send("<h1>Hello World!</h1>")
+})
 router.post('/signup', reqID.createID);
 router.get("/login/:email/:pass", reqID.verifyID);
 router.post('/create-wallet', reqWallet.createWallet);
