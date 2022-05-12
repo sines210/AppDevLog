@@ -1,10 +1,10 @@
 Descriptif du projet :
 
-Ce projet est un projet de type évolutif  avec pour objectif à moyen terme de deployer une application Android  qui pourra effectuer des appels vers webs API, création d’une base de données, conception d’une web API Node.js comme back-end(communication vers la base de données) .
+projet de type évolutif  objectif à moyen terme de deployer une application Android  qui pourra effectuer des appels vers webs API, création d’une base de données
 
-L’objectif à plus long terme sera l’intégration de cette application à la block chain via achat et échanges de cryptomonnaies (le theme des cryptosmonnaies a été choisi dans le but de pouvoir aborder l’apprentissage des technologies de type blockchain) .
+L’objectif à plus long terme sera l’intégration de cette application à la block chain 
 
-Ce projet a consisté au départ au développement d’une application web (orientée web mobile) avec appels vers une web API(externe) dans un cadre Ionic Angular, ceci ayant pour but d’apprendre à concevoir un projet qui utiliserait des composants réutilisables et par ce biais entamer une introduction vers le développement de micro-services.
+développement d’une application web (orientée web mobile) avec appels vers une web API(externe) dans un cadre Ionic Angular, introduction vers le développement de micro-services.
 
 En parallèle, conception de la base de données SQL ainsi que d’une web API Node.js pour les requêtes vers cette base de données. 
 
