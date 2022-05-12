@@ -16,8 +16,7 @@ export class IdentificationService {
 
 
   constructor(private http: HttpClient, private router: Router, private toast: ToastService) { }
-
-
+  
 
   postIdentificationService(email:string,  pass:string){
 
@@ -44,6 +43,7 @@ export class IdentificationService {
 		(err)=>{this.toast.errorIdToast()}
 		)
 	}
+
 
   verifyPin(userId:string, pin: string){
 	return this.http.get(`http://localhost:5000/pin-verify/${userId}/${pin}`)

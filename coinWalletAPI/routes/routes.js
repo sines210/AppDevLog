@@ -4,11 +4,11 @@ const auth = require('../middlewares/auth');
 const reqID = require('../controllers/identification.controller.js');
 const reqWallet = require('../controllers/wallet.controller.js');
 const reqTransaction = require('../controllers/transaction.controller.js');
+//var model = require('../model.json');
 
-
-router.get("/", function (req, res) {
-    res.send({message:res})
-})
+router.get("/", function(req, res){
+    res.send('<h1>Welcome</h1>')
+});
 router.post('/signup', reqID.createID);
 router.get("/login/:email/:pass", reqID.verifyID);
 router.post('/create-wallet', reqWallet.createWallet);

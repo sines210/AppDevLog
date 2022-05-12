@@ -21,7 +21,7 @@ userId: string;
 
  ngOnInit() {
 
-
+ 
       this.loginForm = new FormGroup({
       		    email: new FormControl(null, Validators.email),
 		   // phone: new FormControl(null, [Validators.minLength(8), Validators.maxLength(10)]),
@@ -41,7 +41,6 @@ userId: string;
 //	this.http.userId$.subscribe((res)=>{this.userId = res})
 	
 	}
-
 
 }
 
