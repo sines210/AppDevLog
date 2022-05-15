@@ -14,7 +14,15 @@ var env = require('./env');
 var app = express();
 var cors = require('cors');
 var PORT = process.env.PORT || 5000;
-var corsOptions = {origin: "http://localhost:8100"};
+var whitelist = ['ionic://localhost','http://localhost','http://localhost:8080','http://localhost:8100'];
+var corsOptions = {origin: function (origin, callback) {
+    if (whitelist.indexOf(origin)!==-1){
+	callback(null, true)
+    }
+    else{
+	callback(new Error('Not allowed by Cors'))
+    }
+}};
 var routes = require('./routes/routes');
 var bodyParser = require('body-parser');
 var helmet = require('helmet');
@@ -52,8 +60,7 @@ app.get('/', (req, res)=>{
 
 */
 
-app.use('/', routes);//ici express met api dans l'url apres on peut plus y toucher il faut voir le middleware
-
+app.use('/', routes);
 app.listen(PORT, ()=>{console.log('server works')})
 
 //https.createServer(options, app).listen(PORT)
