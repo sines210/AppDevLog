@@ -10,7 +10,7 @@ import { IdentificationService } from '../../services/identification.service';
   styleUrls: ['./crypto-simulator.component.scss'],
 })
 
-export class CryptoSimulatorComponent {
+export class CryptoSimulatorComponent{
 
   buttonText: string = '.';
   option1: any;
@@ -19,20 +19,31 @@ export class CryptoSimulatorComponent {
   @Input() currency: string = 'USD';
   @Input() symbolCurrency: string = '$';
   modal: HTMLElement;
+  submitButton: HTMLElement;
+  dismissButton: HTMLElement;
+  wrappedButton: HTMLElement;
   contentElement: HTMLElement;
-  hideAndShow : boolean;
+  switchIndicator : boolean;
+  enableButton: boolean = false;
 
 
   constructor(private identification: IdentificationService) { }
 
+   
 
-  ngOnInit(){
+  ngOnInit(){	
 	     this.buttonText = '.';
     	     this.identification.getAuthStatus();
 	     this.modal = document.querySelector<HTMLElement>('app-modal-list');
-	     this.hideAndShow = true;
-	     this.presentModal();
-  }
+	     this.wrappedButton = document.querySelector<HTMLElement>('.wrapped-button');
+	     this.submitButton = document.querySelector<HTMLElement>('.submit');
+	     this.switchIndicator = true;
+	     this.testFunction()
+	     
+	     	//set custom ionic css property   =>   this.dismissButton.style.setProperty('--background', '#eb445a');
+
+		}
+
 
   dataFromChild($event){
 	this.inputCurrency = $event
@@ -42,34 +53,53 @@ export class CryptoSimulatorComponent {
 	this.symbolCurrency = $event
   }
 
-  selectOption(){
+
+/////*Fonctions hide and show liste simulateur et switch submit dismiss button*////
+
+  testFunction(){this.switchButton()}
+
+  switchButton(){
   
-	this.option1 = document.querySelector('.opt1');
-	this.option1.classList.toggle('hideAndShow');
+	if(this.switchIndicator === true && this.dismissButton==null){
+			this.wrappedButton.insertAdjacentHTML('beforeend', `<ion-button class="button-buy-cryptos submit" expand="full"  disabled="true">Launch simulator</ion-button>`);
+			this.submitButton = document.querySelector<HTMLElement>('.submit');  	
 
+			this.submitButton.addEventListener('click', (event)=>{
+			this.modal.style.visibility = "visible";
+			this.switchIndicator = false;
+			this.testFunction()
+					     })
+	}
 
-	this.option2 = document.querySelector('.opt2');
-	this.option2.addEventListener('click', (event)=>{
-		this.hideAndShow = false;
-		this.presentModal();
+	else if(this.switchIndicator === true && this.dismissButton!==null){
+	     		this.wrappedButton.removeChild(this.dismissButton);
+			this.wrappedButton.insertAdjacentHTML('beforeend', `<ion-button class="button-buy-cryptos submit" expand="full">Launch simulator</ion-button>`);
+			this.submitButton = document.querySelector<HTMLElement>('.submit');
+			this.submitButton.addEventListener('click', (event)=>{
+			this.modal.style.visibility = "visible";
+			this.switchIndicator = false;
+			this.testFunction()
+					     })			
+	}
+	
+	else if(this.switchIndicator === false){
+	     		this.wrappedButton.removeChild(this.submitButton);
+			this.wrappedButton.insertAdjacentHTML('beforeend', `<ion-button class="button-buy-cryptos dismiss" expand="full"  color="danger">Dismiss</ion-button>`);
+			this.dismissButton = document.querySelector<HTMLElement>('.dismiss');
+			
+			this.dismissButton.addEventListener('click', (event)=>{
+			this.modal.style.visibility = "hidden";
+			this.switchIndicator = true;
+			this.testFunction()
 			})
+			
+	}
   }
+////////////////////////////////////////////////////////////////////////////
 
-  presentModal(){
-	if(this.hideAndShow === true){
-		this.modal.style.display = "none"
-			    }
-	else{
-		this.modal.style.display = "block"
-			}
-  }
+}
 
-  hideModal(){
-	this.hideAndShow = true;
-	this.presentModal()
-  }
 
-}  
 
 
 

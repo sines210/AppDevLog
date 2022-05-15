@@ -1,8 +1,8 @@
 <ion-grid class="grid-item">
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <ion-row    class="row-grid-items">
+    <ion-row  class="row-grid-items">
       <ion-col>
-	<ion-input   name="total" class="input-wallet iw1" [(ngModel)]="inputCurrency">{{symbolCurrency}}</ion-input>
+	<ion-input   name="total" (ionChange)="submitButton.attributes['disabled'].value='false'" class="input-wallet iw1" [(ngModel)]="inputCurrency">{{symbolCurrency}}</ion-input>
       </ion-col>
       <ion-col>
 	<select [(ngModel)]="currency" name="currency" class="input-wallet iw2">
@@ -12,17 +12,19 @@
       </ion-col>
     </ion-row>
     <ion-row class="bottom">
-      <select class="input-wallet iw3" (click)="selectOption()">
+      <select class="input-wallet iw3">
 	<option class="opt1">Total cryptos according to</option>
 	<option class="opt2">Popularity</option>
       </select>
     </ion-row>
   </form>
-  <app-pad (click)="hideModal()" [getButtonText]="buttonText" [inputFromParent]="inputCurrency" (inputToParent)="dataFromChild($event)"></app-pad>
-<app-modal-list (symbolToParent)="symbolFromChild($event)" [inputCurrency]="inputCurrency" [symbolCurrency]="symbolCurrency" [currency]="currency"></app-modal-list>
+  <app-pad [getButtonText]="buttonText" [inputFromParent]="inputCurrency" (inputToParent)="dataFromChild($event)"></app-pad>
+  <app-modal-list style="visibility:hidden" (symbolToParent)="symbolFromChild($event)" [inputCurrency]="inputCurrency" [symbolCurrency]="symbolCurrency" [currency]="currency"></app-modal-list>
+  <div class="wrapped-button">
+  </div>
 </ion-grid>
   
 
 
 
-<!--adaptable a tt type de simulation-->
+
