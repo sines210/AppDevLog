@@ -45,7 +45,9 @@ export class HttpRequestService {
 
 
 /************************** change value /**************************/
-	getChange24h(id:string):Observable<Coin[]>{
+
+
+	       getChange24h(id:string):Observable<Coin[]>{
 		this.env.sharedKey.subscribe(apikey=>this.apikey = apikey)
 		return this.http.get<Coin[]>(`https://coinranking1.p.rapidapi.com/coin/${id}?timePeriod=24h`,
 		{
@@ -57,6 +59,7 @@ export class HttpRequestService {
 			})	
 
 		}
+		
 		getChange7d(id:string):Observable<Coin[]>{
 		this.env.sharedKey.subscribe(apikey=>this.apikey = apikey)
 		return this.http.get<Coin[]>(`https://coinranking1.p.rapidapi.com/coin/${id}?timePeriod=7d`,
@@ -69,6 +72,7 @@ export class HttpRequestService {
 			})	
 
 		}
+		
 		getChange30d(id:string):Observable<Coin[]>{
 		this.env.sharedKey.subscribe(apikey=>this.apikey = apikey)
 		return this.http.get<Coin[]>(`https://coinranking1.p.rapidapi.com/coin/${id}?timePeriod=30d`,

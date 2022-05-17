@@ -1,5 +1,8 @@
 
-    <ion-list class="modal-content">
+<!--version web a travailler pour android ngif ne marche pas
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <ion-list name='t' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='popularity'" class="modal-content">
      	<ion-item *ngFor="let crypto of cryptos" :href="/folders/wallet/{{crypto.uuid}}">
             <ion-avatar slot="start">
               <img src="{{crypto.iconUrl}}"/>
@@ -8,10 +11,49 @@
               <h2>#{{crypto.rank}}</h2>
 	      <p>{{crypto.name}}</p>
 	      <p>GET: <span>{{crypto.symbol}}</span><span style="margin-left: 1%">{{totalCryptos(inputCurrency, currency, crypto.price)}}</span></p>
+	      	
+  <p><span>${{roundedDecimal(crypto.price)}}</span><span [ngStyle]="{'color' : crypto.change[0] === '-'? '#ff1100' : '#23e82d'}"> {{statusGetter(crypto.change)}}%</span></p>
 	    </ion-label>
 	  </ion-item>
     </ion-list>
 
 
+   <ion-list name='u' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='flops'"  class="modal-content">
+     	<ion-item *ngFor="let crypto of modelFlop" :href="/folders/wallet/{{crypto.uuid}}">
+            <ion-avatar slot="start">
+            </ion-avatar>
+            <ion-label>  
+              <h2><span>{{crypto[1]}}</span><span [ngStyle]="{'color' : crypto[0].charAt(0) === '-'? '#ff1100' : '#23e82d'}"> {{statusGetter(crypto[0])}}%</span></h2>
+	      <p>${{roundedDecimal(crypto[3])}}</p>
+	      <p>GET: <span>{{crypto[6]}}</span><span style="margin-left: 1%">{{totalCryptos(inputCurrency, currency, crypto[3])}}</span></p>
+	    </ion-label>
+	  </ion-item>
+    </ion-list>
 
+    
 
+	<ion-list  name='v' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='tops'"  class="modal-content"  >
+     	<ion-item *ngFor="let crypto of modelTop">
+            <ion-avatar slot="start">
+            </ion-avatar>
+            <ion-label>  
+              <h2><span>{{crypto[1]}}</span><span [ngStyle]="{'color' : crypto[0].charAt(0) === '-'? '#ff1100' : '#23e82d'}"> {{statusGetter(crypto[0])}}%</span></h2>
+	      <p>${{roundedDecimal(crypto[3])}}</p>
+	      <p>GET: <span>{{crypto[6]}}</span><span style="margin-left: 1%">{{totalCryptos(inputCurrency, currency, crypto[3])}}</span></p>
+	    </ion-label>
+	  </ion-item>
+	</ion-list>
+</form>
+-->
+   <ion-list  class="modal-content">
+     	<ion-item *ngFor="let crypto of modelFlop" :href="/folders/wallet/{{crypto.uuid}}">
+            <ion-avatar slot="start">
+              <!--<img src="{{crypto[4]}}"/>--><!--voir xss-->
+            </ion-avatar>
+            <ion-label>  
+              <h2><span>{{crypto[1]}}</span><span [ngStyle]="{'color' : crypto[0].charAt(0) === '-'? '#ff1100' : '#23e82d'}"> {{statusGetter(crypto[0])}}%</span></h2>
+	      <p>${{roundedDecimal(crypto[3])}}</p>
+	      <p>GET: <span>{{crypto[6]}}</span><span style="margin-left: 1%">{{totalCryptos(inputCurrency, currency, crypto[3])}}</span></p>
+	    </ion-label>
+	  </ion-item>
+    </ion-list>

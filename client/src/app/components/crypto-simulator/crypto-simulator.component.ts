@@ -13,11 +13,10 @@ import { IdentificationService } from '../../services/identification.service';
 export class CryptoSimulatorComponent{
 
   buttonText: string = '.';
-  option1: any;
-  option2: any;
   @Input() inputCurrency: string = '0';
   @Input() currency: string = 'USD';
   @Input() symbolCurrency: string = '$';
+  @Input() selectSimulator: string = '';
   modal: HTMLElement;
   submitButton: HTMLElement;
   dismissButton: HTMLElement;
@@ -25,7 +24,11 @@ export class CryptoSimulatorComponent{
   contentElement: HTMLElement;
   switchIndicator : boolean;
   enableButton: boolean = false;
-
+  option0: HTMLElement;
+  option1: HTMLElement;
+  option2: HTMLElement;
+  option3: HTMLElement;
+      
 
   constructor(private identification: IdentificationService) { }
 
@@ -34,14 +37,17 @@ export class CryptoSimulatorComponent{
   ngOnInit(){	
 	     this.buttonText = '.';
     	     this.identification.getAuthStatus();
-	     this.modal = document.querySelector<HTMLElement>('app-modal-list');
 	     this.wrappedButton = document.querySelector<HTMLElement>('.wrapped-button');
 	     this.submitButton = document.querySelector<HTMLElement>('.submit');
 	     this.switchIndicator = true;
-	     this.testFunction()
+
 	     
 	     	//set custom ionic css property   =>   this.dismissButton.style.setProperty('--background', '#eb445a');
 
+		this.option0 = document.querySelector<HTMLElement>('.opt0');
+		this.option1 = document.querySelector<HTMLElement>('.opt1');
+		this.option2 = document.querySelector<HTMLElement>('.opt2');
+		this.option3 = document.querySelector<HTMLElement>('.opt3');
 		}
 
 
@@ -52,6 +58,8 @@ export class CryptoSimulatorComponent{
  symbolFromChild($event){
 	this.symbolCurrency = $event
   }
+
+
 
 
 /////*Fonctions hide and show liste simulateur et switch submit dismiss button*////
@@ -96,6 +104,22 @@ export class CryptoSimulatorComponent{
 	}
   }
 ////////////////////////////////////////////////////////////////////////////
+
+  selectOption(){
+	this.option1.addEventListener('click', ()=>{this.selectSimulator = "popularity"
+					       	    this.modal = document.querySelector<HTMLElement>('app-modal2');
+						    	     this.testFunction()
+						    })
+	this.option2.addEventListener('click', ()=>{this.selectSimulator = "tops"
+					       	    this.modal = document.querySelector<HTMLElement>('app-modal1');
+						    	     this.testFunction()
+						    })
+	this.option3.addEventListener('click', ()=>{this.selectSimulator = "flops"
+					       	     this.modal = document.querySelector<HTMLElement>('app-modal-list');
+						     	     this.testFunction()
+						     });
+  }
+
 
 }
 

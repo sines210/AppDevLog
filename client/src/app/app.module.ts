@@ -21,6 +21,8 @@ import { WalletPage } from './components/wallet/wallet.page';
 import { BuyCryptoComponent } from './components/wallet/buy-crypto/buy-crypto.component';
 import { CryptoSimulatorComponent } from './components/crypto-simulator/crypto-simulator.component';
 import { ModalListComponent } from './components/modal-list/modal-list.component';
+import { Modal1Component } from './components/modal1/modal1.component';
+import { Modal2Component } from './components/modal2/modal2.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { ModalListComponent } from './components/modal-list/modal-list.component
 		WalletPage,
 		BuyCryptoComponent,
 		CryptoSimulatorComponent,
-		ModalListComponent],
+		ModalListComponent,
+		Modal1Component,
+		Modal2Component],
 		
   entryComponents: [],
   

@@ -97,6 +97,8 @@ export class FunctionsService {
 		else{
 		changeVal = ''}
 
+//ajouter la condition du zéro (on la passera en vert increased par défaut
+
 		return changeVal
 		}
 

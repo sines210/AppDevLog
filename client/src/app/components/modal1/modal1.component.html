@@ -1,0 +1,12 @@
+<ion-list  class="modal-content">
+     	<ion-item *ngFor="let crypto of modelTop" :href="/folders/wallet/{{crypto.uuid}}">
+            <ion-avatar slot="start">
+              <!--<img src="{{crypto[4]}}"/>--><!--voir xss-->
+            </ion-avatar>
+            <ion-label>  
+              <h2><span>{{crypto[1]}}</span><span [ngStyle]="{'color' : crypto[0].charAt(0) === '-'? '#ff1100' : '#23e82d'}"> {{statusGetter(crypto[0])}}%</span></h2>
+	      <p>${{roundedDecimal(crypto[3])}}</p>
+	      <p>GET: <span>{{crypto[6]}}</span><span style="margin-left: 1%">{{totalCryptos(inputCurrency, currency, crypto[3])}}</span></p>
+	    </ion-label>
+	  </ion-item>
+    </ion-list>

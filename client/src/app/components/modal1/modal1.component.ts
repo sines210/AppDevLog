@@ -5,13 +5,15 @@ import { IdentificationService } from '../../services/identification.service';
 import { DataV2 } from '../../models/datav2';
 import { Arrays } from '../../models/arrays';
 
-@Component({
-  selector: 'app-modal-list',
-  templateUrl: './modal-list.component.html',
-  styleUrls: ['./modal-list.component.scss'],
-})
 
-export class ModalListComponent{
+@Component({
+  selector: 'app-modal1',
+  templateUrl: './modal1.component.html',
+  styleUrls: ['./modal1.component.scss'],
+})
+export class Modal1Component implements OnInit {
+
+
 
   cryptos: DataV2[];
   priceCoin: any;
