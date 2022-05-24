@@ -1,3 +1,7 @@
+
+
+
+
 <ion-grid class="grid-item">
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <ion-row  class="row-grid-items">
@@ -25,11 +29,13 @@
   
   <div class="wrapped-button">
   </div>
+  <!--faire du bouton un composant réutilisable et l'inclure ici à la place du wrap button-->
   
+<!--  
   <app-modal-list style="visibility:hidden" (symbolToParent)="symbolFromChild($event)"[selectSimulator]="selectSimulator" [inputCurrency]="inputCurrency" [symbolCurrency]="symbolCurrency" [currency]="currency"></app-modal-list>
     <app-modal1 style="visibility:hidden" (symbolToParent)="symbolFromChild($event)"[selectSimulator]="selectSimulator" [inputCurrency]="inputCurrency" [symbolCurrency]="symbolCurrency" [currency]="currency"></app-modal1>
   <app-modal2 style="visibility:hidden" (symbolToParent)="symbolFromChild($event)"[selectSimulator]="selectSimulator" [inputCurrency]="inputCurrency" [symbolCurrency]="symbolCurrency" [currency]="currency"></app-modal2>
-
+-->
 </ion-grid>
   
 

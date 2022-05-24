@@ -1,8 +1,8 @@
 
-<!--version web a travailler pour android ngif ne marche pas
+<!--version web a travailler pour android ngif ne marche pas-->
 
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-  <ion-list name='t' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='popularity'" class="modal-content">
+  <ion-list name='t' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='popularity'" class="modal-content mod1">
      	<ion-item *ngFor="let crypto of cryptos" :href="/folders/wallet/{{crypto.uuid}}">
             <ion-avatar slot="start">
               <img src="{{crypto.iconUrl}}"/>
@@ -18,7 +18,7 @@
     </ion-list>
 
 
-   <ion-list name='u' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='flops'"  class="modal-content">
+   <ion-list name='u' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='flops'"  class="modal-content mod2">
      	<ion-item *ngFor="let crypto of modelFlop" :href="/folders/wallet/{{crypto.uuid}}">
             <ion-avatar slot="start">
             </ion-avatar>
@@ -32,7 +32,7 @@
 
     
 
-	<ion-list  name='v' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='tops'"  class="modal-content"  >
+	<ion-list  name='v' [(ngModel)]="selectSimulator" *ngIf="selectSimulator==='tops'"  class="modal-content mod3">  
      	<ion-item *ngFor="let crypto of modelTop">
             <ion-avatar slot="start">
             </ion-avatar>
@@ -44,11 +44,11 @@
 	  </ion-item>
 	</ion-list>
 </form>
--->
+<!--
    <ion-list  class="modal-content">
      	<ion-item *ngFor="let crypto of modelFlop" :href="/folders/wallet/{{crypto.uuid}}">
             <ion-avatar slot="start">
-              <!--<img src="{{crypto[4]}}"/>--><!--voir xss-->
+    
             </ion-avatar>
             <ion-label>  
               <h2><span>{{crypto[1]}}</span><span [ngStyle]="{'color' : crypto[0].charAt(0) === '-'? '#ff1100' : '#23e82d'}"> {{statusGetter(crypto[0])}}%</span></h2>
@@ -57,3 +57,6 @@
 	    </ion-label>
 	  </ion-item>
     </ion-list>
+-->
+
+          <!--<img src="{{crypto[4]}}"/>--><!--voir xss-->

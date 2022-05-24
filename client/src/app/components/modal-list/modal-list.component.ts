@@ -40,6 +40,7 @@ export class ModalListComponent{
 
   ngOnChanges(){
 
+	
 	this.http.getAllCoins()
 	     .subscribe((res)=>{
 
@@ -65,7 +66,7 @@ export class ModalListComponent{
 				})		
 			})
 
-
+			
 	this.symbolToParent.emit(this.symbolCurrency)
 
 	}
